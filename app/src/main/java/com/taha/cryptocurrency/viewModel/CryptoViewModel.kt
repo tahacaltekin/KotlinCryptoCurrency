@@ -13,7 +13,7 @@ class CryptoViewModel : ViewModel() {
 
     private var cryptoApiService = CryptoService()
     private var compositeDisposable = CompositeDisposable()
-    val getCryptoLiveData = MutableLiveData<CryptoModelsItem>()
+    val getCryptoLiveData = MutableLiveData<ArrayList<CryptoModelsItem>>()
 
     fun refrestData() {
         getCryptoData()
@@ -24,8 +24,9 @@ class CryptoViewModel : ViewModel() {
             cryptoApiService.getData()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableObserver<List<CryptoModelsItem>>() {
-                    override fun onNext(t: List<CryptoModelsItem>) {
+                .subscribeWith(object : DisposableObserver<ArrayList<CryptoModelsItem>>() {
+                    override fun onNext(t: ArrayList<CryptoModelsItem>) {
+                        getCryptoLiveData.value = t
                     }
 
                     override fun onError(e: Throwable) {

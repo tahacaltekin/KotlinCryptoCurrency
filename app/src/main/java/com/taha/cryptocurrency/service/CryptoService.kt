@@ -19,7 +19,7 @@ class CryptoService {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build().create(CryptoAPI::class.java)
 
-    fun getData() : Observable<List<CryptoModelsItem>> {
+    fun getData() : Observable<ArrayList<CryptoModelsItem>> {
         return retrofit.getData()
     }
 }
