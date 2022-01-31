@@ -2,21 +2,15 @@ package com.taha.cryptocurrency.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ahmadrosid.svgloader.SvgLoader
 import com.taha.cryptocurrency.adapter.CryptoListAdapter
 import com.taha.cryptocurrency.databinding.ActivityMainBinding
-import com.taha.cryptocurrency.model.CryptoModelsItem
-import com.taha.cryptocurrency.service.CryptoAPI
 import com.taha.cryptocurrency.viewModel.CryptoViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
+import kotlinx.android.synthetic.main.crypto_row.*
 
 class MainActivity : AppCompatActivity() {
 
