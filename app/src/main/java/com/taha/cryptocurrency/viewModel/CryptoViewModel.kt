@@ -15,7 +15,7 @@ class CryptoViewModel : ViewModel() {
     private var compositeDisposable = CompositeDisposable()
     val getCryptoLiveData = MutableLiveData<ArrayList<CryptoModelsItem>>()
 
-    fun refrestData() {
+    fun refreshData() {
         getCryptoData()
     }
 
